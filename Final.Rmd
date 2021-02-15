@@ -318,7 +318,7 @@ We keep 8 variables, seen below, after running a LASSO regression. We found that
 
 ```{r, echo=F}
 varnames8 <- c("wallbrick", "floorcement", "ceiling", "energywood", "children", "qmobilephone", "rpaca", "eduhoh")
-knitr::kable(varnames8, "latex", booktabs=T)
+kable(varnames8)
 ```
 
 ```{r, include=F}
@@ -369,7 +369,7 @@ pval
 #table of coefficients and p-values, Moderate Poverty (Target=2)
 reg4tab <- rbind(output$coefficients[1,],output$standard.errors[1,],t.value[1,],pval[1,])
 rownames(reg4tab) <- c("Coefficient","Std. Errors","T Statistic","P-value")
-knitr::kable(t(reg4tab), "latex", booktabs=T, caption = "Coefficients for Moderate vs. Extreme Poverty")%>%
+kable(t(reg4tab),  caption = "Coefficients for Moderate vs. Extreme Poverty")%>%
 kable_styling(latex_options = "hold_position")  
 #Significant: children, qmobilephone
 ```
@@ -388,7 +388,7 @@ Further, the log odds of being in moderate poverty versus extreme poverty will i
 #table of coefficients and p-values, Vulnerable Households (Target = 3)
 reg4tab3 <- rbind(output$coefficients[2,],output$standard.errors[2,],t.value[2,],pval[2,])
 rownames(reg4tab3) <- c("Coefficient","Std. Errors","T Statistic","P-value")
-knitr::kable(t(reg4tab3), "latex", booktabs=T, caption= "Coefficients for Vulnerable HH vs. Extreme Poverty")%>%
+kable(t(reg4tab3), caption= "Coefficients for Vulnerable HH vs. Extreme Poverty")%>%
 kable_styling(latex_options = "hold_position")  
 #Significant variables: children, qmobilephone
 ```
@@ -407,7 +407,7 @@ Finally, the log odds of being vulnerable to poverty versus being in extreme pov
 #table of coefficients and p-values, Non-Vulnerable Households (Target = 4 )
 reg4tab4 <- rbind(output$coefficients[3,],output$standard.errors[3,],t.value[3,],pval[3,])
 rownames(reg4tab4) <- c("Coefficient","Std. Errors","T Statistic","P-value")
-knitr::kable(t(reg4tab4), "latex", booktabs=T, caption= "Coefficients for Non-Vulnerable HH vs. Extreme Poverty")%>%
+kable(t(reg4tab4), caption= "Coefficients for Non-Vulnerable HH vs. Extreme Poverty")%>%
 kable_styling(latex_options = "hold_position")  
 #Significant: wallbrick, ceiling, energywood, children, qmobilephone, rpaca, eduhoh 
 ```
@@ -451,7 +451,7 @@ testtab
 #Print Confusion Matrix Table
 rownames(testtab) <- c("Extreme Pov.","Moderate Pov.","Vulnerable HH","Non-Vulnerable HH")
 colnames(testtab) <- c("Extreme Pov.","Moderate Pov.","Vulnerable HH","Non-Vulnerable HH")
-knitr::kable(testtab, "latex", booktabs=T, caption = "Confusion Matrix for MLR: Predicted Poverty Level")%>%
+kable(testtab, caption = "Confusion Matrix for MLR: Predicted Poverty Level")%>%
 kable_styling(latex_options = "hold_position")  
 ```
 
@@ -643,7 +643,7 @@ BRF <- c(52.5, 33.3, 35.4, 22.1, 64.1)
 concl <- rbind(MLR, SRF, BRF)
 colnames(concl) <- c("Total", "Extreme Pov", "Moderate Pov", "Vulnerable HH", "Non-Vulnerable HH")
 
-knitr::kable(concl, booktabs = T) %>%
+kable(concl) %>%
   kable_styling(latex_options = "hold_position")
 ```
 
